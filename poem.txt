@@ -1,0 +1,38 @@
+<div class="title">
+	<h2>Firme</h2>
+</div>
+<div class="CSSTableGenerator" id="spisak_firmi" >
+	<table>
+        <tr>
+        <td>Naziv</td>
+        <td>Adresa</td>
+        <td>Tel. 1</td>
+		<td>Tel. 2</td>
+		<td></td>
+        </tr>
+	<?php		
+		$sql="select * from firma";
+		$rst=mysqli_query($connection, $sql);
+		while($row = mysqli_fetch_assoc($rst))
+		{
+			$id=$row['id'];
+			$naziv=$row['naziv'];
+			$adresa=$row['adresa'];
+			$tel1=$row['tel1'];
+			$tel2=$row['tel2'];
+			
+			$red = "<tr>";
+			$red .= "<td style=\"display:none\">$id</td>";
+			$red .= "<td>$naziv</td>";
+			$red .= "<td>$adresa</td>";
+			$red .= "<td>$tel1</td>";
+			$red .= "<td>$tel2</td>";
+			$red .= "<td><a href=\"index.php?strana=edit_firma&id=$id\"><img src=\"images/edit.png\" /></a>
+			<a href=\"index.php?strana=delete_firma&id=$id\"><img src=\"images/delete.png\" /></a></td>";
+			$red .= "</tr>";
+			print($red);
+		}
+		echo '<tr><td colspan="5"><a href="index.php?strana=new_firma"><img style="float:left; margin-right: 10px;" src="images/add.png" /><h2>Dodaj firmu</h2></a></td></tr>';
+	?>
+	</table>
+</div>
