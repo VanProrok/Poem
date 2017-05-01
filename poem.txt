@@ -1,5 +1,5 @@
 <div class="title">
-	<h2>Firme</h2>
+	<h3>Firme</h3>
 </div>
 <div class="CSSTableGenerator" id="spisak_firmi" >
 	<table>
